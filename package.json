@@ -1,0 +1,37 @@
+{
+  "name": "forge.india",
+  "version": "1.0.0",
+  "description": "India on top🔥🔥🔥",
+  "keywords": [
+    "forge.india",
+    "ForgeIndia",
+    "india",
+    "forge",
+    "tryforge",
+    "forgescript"
+  ],
+  "homepage": "https://github.com/user-lezi/ForgeIndia#readme",
+  "bugs": {
+    "url": "https://github.com/user-lezi/ForgeIndia/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/user-lezi/ForgeIndia.git"
+  },
+  "license": "MIT",
+  "author": "lezii",
+  "type": "commonjs",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "prettier src -w && tsc",
+    "test": "node dist/__tests__"
+  },
+  "devDependencies": {
+    "@tryforge/forgescript": "^2.3.0",
+    "@types/node": "^22.15.21",
+    "dotenv": "^16.5.0",
+    "prettier": "^3.5.3",
+    "typescript": "^5.8.3"
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "$sendMessage": ["$messageBhej", "$sandeshBhej", "$msgBhej", "$sendMsg"],
+  "$addMessageReactions": ["$msgReactionAddKaro"],
+  "$channelID": ["$chnlID"],
+  "$messageID": ["$msgID"]
+}

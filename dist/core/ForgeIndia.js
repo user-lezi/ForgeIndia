@@ -15,9 +15,14 @@ class ForgeIndia extends forgescript_1.ForgeExtension {
     options;
     constructor(opts = {}) {
         super();
+        const exclude = (opts.exclude ?? []).map((name) => {
+            const normalized = name.startsWith("$") ? name : `$${name}`;
+            return normalized.toLowerCase();
+        });
         this.options = {
             debug: Boolean(opts.debug),
             translation: opts.translation ?? typings_1.ForgeIndiaTranslation.Hinglish,
+            exclude,
         };
     }
     init(client) {
@@ -47,7 +52,8 @@ class ForgeIndia extends forgescript_1.ForgeExtension {
         const translatedNativeFunctions = [];
         for (const [functionName, [translatedName, ...translatedAliases],] of Object.entries(translations)) {
             const nativeFunc = forgescript_1.FunctionManager.get(functionName);
-            if (nativeFunc) {
+            if (nativeFunc &&
+                !this.options.exclude.includes(nativeFunc.name.toLowerCase())) {
                 translatedNativeFunctions.push(new forgescript_1.NativeFunction({
                     ...nativeFunc.data,
                     name: translatedName,

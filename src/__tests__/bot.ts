@@ -12,6 +12,7 @@ const client = new ForgeClient({
     new ForgeIndia({
       debug: true,
       translation: ForgeIndiaTranslation.Hinglish,
+      // exclude: ["$sendMessage"],
     }),
   ],
 });

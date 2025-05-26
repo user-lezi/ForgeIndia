@@ -35,9 +35,16 @@ export class ForgeIndia extends ForgeExtension {
    */
   public constructor(opts: Partial<IForgeIndiaOptions> = {}) {
     super();
+
+    const exclude = (opts.exclude ?? []).map((name) => {
+      const normalized = name.startsWith("$") ? name : `$${name}`;
+      return normalized.toLowerCase() as `$${string}`;
+    });
+
     this.options = {
       debug: Boolean(opts.debug),
       translation: opts.translation ?? ForgeIndiaTranslation.Hinglish,
+      exclude,
     };
   }
 
@@ -111,7 +118,12 @@ export class ForgeIndia extends ForgeExtension {
       [translatedName, ...translatedAliases],
     ] of Object.entries(translations)) {
       const nativeFunc = FunctionManager.get(functionName);
-      if (nativeFunc) {
+      if (
+        nativeFunc &&
+        !this.options.exclude.includes(
+          nativeFunc.name.toLowerCase() as `$${string}`,
+        )
+      ) {
         translatedNativeFunctions.push(
           new NativeFunction({
             ...nativeFunc.data,

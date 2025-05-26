@@ -19,6 +19,19 @@ export interface IForgeIndiaOptions {
 
   /** The translation to be applied to native functions. */
   translation: ForgeIndiaTranslation;
+
+  /**
+   * A list of **original ForgeScript function names** to exclude from translation.
+   *
+   * These are the unlocalized/native function names (e.g., `$sendMessage`),
+   * and any functions listed here will not be translated or registered.
+   *
+   * Example:
+   * ```ts
+   * exclude: ["$sendMessage", "$randomText"]
+   * ```
+   */
+  exclude: `$${string}`[];
 }
 
 /**

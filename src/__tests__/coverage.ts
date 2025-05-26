@@ -6,6 +6,14 @@ import fs from "fs/promises";
 const url =
   "https://raw.githubusercontent.com/tryforge/ForgeScript/dev/metadata/functions.json";
 
+// ANSI color helpers
+const colors = {
+  reset: "\x1b[0m",
+  green: "\x1b[32m",
+  red: "\x1b[31m",
+  bold: "\x1b[1m",
+};
+
 /**
  * Fetch all native ForgeScript function names.
  */
@@ -16,20 +24,18 @@ async function fetchFunctionNames(): Promise<`$${string}`[]> {
       throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
     }
     const json = await res.json();
-    // `json` is an array of objects with a `name` property
-    const names = json.map((x: any) => x.name);
-    return names as `$${string}`[];
+    return json.map((x: any) => x.name) as `$${string}`[];
   } catch (err: any) {
-    throw new Error("Error fetching:" + err.message);
+    throw new Error("Error fetching: " + err.message);
   }
 }
 
 /**
- * Load translation JSON for given translation key.
+ * Load translation JSON for a given translation key.
  */
 async function loadTranslation(
   translationKey: ForgeIndiaTranslation,
-): Promise<Record<`$${string}`, `$${string}`[]>> {
+): Promise<FITranslation> {
   const filePath = path.resolve(
     __dirname,
     `../../translations/${translationKey}.json`,
@@ -38,29 +44,25 @@ async function loadTranslation(
     const content = await fs.readFile(filePath, "utf-8");
     const parsed = JSON.parse(content);
     console.log(
-      `Loaded ${Object.keys(parsed).length} translations for ${translationKey}`,
+      `${colors.green}✅ Loaded ${Object.keys(parsed).length} translations for '${translationKey}'${colors.reset}`,
     );
     return parsed;
   } catch (err: any) {
     console.warn(
-      `Failed to load translation file for ${translationKey} at ${filePath}: ${err.message}`,
+      `${colors.red}⚠️ Failed to load '${translationKey}' at ${filePath}${colors.reset}`,
     );
+    console.warn(`   Reason: ${err.message}\n`);
     return {};
   }
 }
 
-// ANSI color helpers
-const colors = {
-  reset: "\x1b[0m",
-  green: "\x1b[32m",
-  red: "\x1b[31m",
-  bold: "\x1b[1m",
-};
-
-function progressBar(percent: number, width = 20): string {
+/**
+ * Create a progress bar string.
+ */
+function progressBar(percent: number, width = 40): string {
   const filled = Math.round((percent / 100) * width);
   const empty = width - filled;
-  return "█".repeat(filled) + "░".repeat(empty);
+  return colors.green + "█".repeat(filled) + colors.reset + "░".repeat(empty);
 }
 
 (async () => {
@@ -68,7 +70,7 @@ function progressBar(percent: number, width = 20): string {
   const totalFunctions = functionNames.length;
 
   console.log(
-    `${colors.bold}Total ForgeScript Functions: ${totalFunctions}${colors.reset}\n`,
+    `\n${colors.bold}📜 Total ForgeScript functions: ${totalFunctions}${colors.reset}\n`,
   );
 
   for (const key in ForgeIndiaTranslation) {
@@ -76,18 +78,40 @@ function progressBar(percent: number, width = 20): string {
       ForgeIndiaTranslation[key as keyof typeof ForgeIndiaTranslation];
     const translationData = await loadTranslation(translationKey);
 
-    const translatedCount = functionNames.filter((f) =>
-      Object.prototype.hasOwnProperty.call(translationData, f),
-    ).length;
+    let translatedCount = 0;
+    let line = 0;
+    let fn: `$${string}`;
+
+    for (fn in translationData) {
+      line++;
+      if (functionNames.includes(fn)) {
+        translatedCount++;
+      } else {
+        console.log(
+          `${colors.red}❌ [Line ${line}] Unknown ForgeScript function: ${fn}${colors.reset}`,
+        );
+        const suggestion = functionNames.find(
+          (f) => f.toLowerCase() === fn.toLowerCase(),
+        );
+        if (suggestion) {
+          console.log(
+            `   🤔 Did you mean: ${colors.green}${suggestion}${colors.reset}?`,
+          );
+        }
+      }
+    }
 
     const percent = (translatedCount / totalFunctions) * 100;
-    const bar = progressBar(percent, 20);
+    const bar = progressBar(percent);
 
-    console.log(`Translation: ${colors.green}${translationKey}${colors.reset}`);
     console.log(
-      `Translated: ${translatedCount} / ${totalFunctions} (${colors.red}${percent.toFixed(2)}%${colors.reset})`,
+      `${colors.bold}🈯 Translation: ${colors.green}${translationKey}${colors.reset}`,
     );
-    console.log(`Coverage:   ${colors.bold}${bar}${colors.reset}`);
-    console.log("-".repeat(30));
+    console.log(`   Translated : ${translatedCount} / ${totalFunctions}`);
+    console.log(
+      `   Coverage   : ${colors.red}${percent.toFixed(2)}%${colors.reset}`,
+    );
+    console.log(`   Progress   : ${bar}`);
+    console.log("-".repeat(50));
   }
 })();

@@ -1,6 +1,4 @@
-| hinglish | 5 | 1025 | 0.49% |
-
-
+# 🗣 Translated? - Haan, *Google Translate* Ne Kiya Hai.
 
 Welcome to the glamorous world of **ForgeIndia** translations — where we count how many of those magical native functions actually got translated into *apni bhasha*.
 

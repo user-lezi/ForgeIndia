@@ -9,12 +9,8 @@ const promises_1 = __importDefault(require("fs/promises"));
 (async () => {
     const functionNames = await (0, coverage_1.fetchFunctionNames)();
     const totalFunctions = functionNames.length;
-    const QueryLine = "## Coverage Summary";
     const MarkdownPath = "COVERAGE.md";
     const Markdown = await promises_1.default.readFile(MarkdownPath, "utf-8");
-    const MarkdownLines = Markdown.split("\n");
-    const QueryLineIndex = MarkdownLines.indexOf(QueryLine);
-    const DataStartIndex = MarkdownLines.findIndex((line, index) => index > QueryLineIndex && line.startsWith("|--")) + 1;
     const coverageRows = [];
     for (const key in typings_1.ForgeIndiaTranslation) {
         const translationKey = typings_1.ForgeIndiaTranslation[key];
@@ -23,9 +19,7 @@ const promises_1 = __importDefault(require("fs/promises"));
         const percent = ((translatedCount / totalFunctions) * 100).toFixed(2);
         coverageRows.push(`| ${translationKey} | ${translatedCount} | ${totalFunctions} | ${percent}% |`);
     }
-    const before = MarkdownLines.slice(0, DataStartIndex);
-    const after = MarkdownLines.slice(MarkdownLines.findIndex((line, idx) => idx > DataStartIndex && !line.startsWith("|")));
-    const updatedMarkdown = [...before, ...coverageRows, "", ...after].join("\n");
+    const updatedMarkdown = Markdown.replace(/:\|\s+(\|[ a-z0-9%]+){4}\|\n[^|]/, ":|\n" + coverageRows.join("\n"));
     await promises_1.default.writeFile(MarkdownPath, updatedMarkdown);
     console.log("✅ Updated coverage data in COVERAGE.md");
 })();

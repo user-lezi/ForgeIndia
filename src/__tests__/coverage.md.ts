@@ -6,16 +6,8 @@ import fs from "fs/promises";
   const functionNames = await fetchFunctionNames();
   const totalFunctions = functionNames.length;
 
-  const QueryLine = "## Coverage Summary";
   const MarkdownPath = "COVERAGE.md";
   const Markdown = await fs.readFile(MarkdownPath, "utf-8");
-  const MarkdownLines = Markdown.split("\n");
-
-  const QueryLineIndex = MarkdownLines.indexOf(QueryLine);
-  const DataStartIndex =
-    MarkdownLines.findIndex(
-      (line, index) => index > QueryLineIndex && line.startsWith("|--"),
-    ) + 1;
 
   const coverageRows: string[] = [];
 
@@ -32,14 +24,10 @@ import fs from "fs/promises";
       `| ${translationKey} | ${translatedCount} | ${totalFunctions} | ${percent}% |`,
     );
   }
-  const before = MarkdownLines.slice(0, DataStartIndex);
-  const after = MarkdownLines.slice(
-    MarkdownLines.findIndex(
-      (line, idx) => idx > DataStartIndex && !line.startsWith("|"),
-    ),
+  const updatedMarkdown = Markdown.replace(
+    /:\|\s+(\|[ a-z0-9%]+){4}\|\n[^|]/,
+    ":|\n" + coverageRows.join("\n"),
   );
-
-  const updatedMarkdown = [...before, ...coverageRows, "", ...after].join("\n");
   await fs.writeFile(MarkdownPath, updatedMarkdown);
 
   console.log("✅ Updated coverage data in COVERAGE.md");

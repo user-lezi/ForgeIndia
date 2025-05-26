@@ -19,7 +19,7 @@ const promises_1 = __importDefault(require("fs/promises"));
         const percent = ((translatedCount / totalFunctions) * 100).toFixed(2);
         coverageRows.push(`| ${translationKey} | ${translatedCount} | ${totalFunctions} | ${percent}% |`);
     }
-    const updatedMarkdown = Markdown.replace(/:\|\s+(\|[ a-z0-9%]+){4}\|\n[^|]/, ":|\n" + coverageRows.join("\n"));
+    const updatedMarkdown = Markdown.replace(/:\|\s+(\|[ a-z0-9%.]+){4}\|/i, ":|\n" + coverageRows.join("\n"));
     await promises_1.default.writeFile(MarkdownPath, updatedMarkdown);
     console.log("✅ Updated coverage data in COVERAGE.md");
 })();

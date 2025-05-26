@@ -1,7 +1,25 @@
 {
-  "$sendMessage": ["$messageBhej", "$sandeshBhej", "$msgBhej", "$sendMsg"],
-  "$addMessageReactions": ["$msgReactionAddKaro"],
-  "$channelID": ["$chnlID"],
-  "$messageID": ["$msgID"],
-  "$randomText": ["$faltuText", "$kuchBhi", "$kuchBhiText", "$randomLikhai", "$rigged"]
+  "$sendMessage": ["$messageBhej", "$sandeshBhej", "$msgBhej", "$sendMsg", "$bolDo"],
+  "$reply": ["$jawabDo", "$replyKaro", "$uttarDo", "$bolWapas"],
+  "$addMessageReactions": ["$msgReactionAddKaro", "$reactionLagao", "$reactionAdd", "$emoteLagao"],
+  "$deleteMessage": ["$msgHatao", "$deleteMsg", "$hataDoMsg"],
+
+  "$channelID": ["$chnlID", "$channelKaID", "$chnID"],
+  "$deleteChannels": ["$channelsUdaao", "$chnlDelete", "$deleteChnls", "$hataoChannels"],
+
+  "$messageID": ["$msgID", "$messageKaID", "$idOfMsg"],
+  "$randomText": ["$kuchBhi", "$faltuText", "$kuchBhiText", "$randomLikhai", "$rigged", "$randomBol"],
+
+  "$username": ["$naam", "$usernaam", "$naamOfUser", "$uname"],
+  "$userTag": ["$pooraNaam", "$userKaTag", "$userPooraNaam"],
+  "$userGlobalName": ["$sabkeSamneNaam", "$globalNaam"],
+  "$randomUserID": ["$koiBhiID", "$userRandomID", "$kisiKaID"],
+  "$isBot": ["$kyaBotHai", "$botCheck", "$botHaiKya"],
+
+
+  "$sum": ["$jod", "$plusKaro", "$addKaro"],
+  "$sub": ["$ghatao", "$minusKaro", "$subtractKaro"],
+  "$math": ["$hisabKaro", "$calculateKaro", "$mathKaro", "$ganitKaro"],
+  "$let": ["$varBanao", "$variableSetKaro", "$rakho"],
+  "$get": ["$varLo", "$nikalo", "$variablePao"]
 }

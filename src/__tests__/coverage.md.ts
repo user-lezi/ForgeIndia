@@ -25,7 +25,7 @@ import fs from "fs/promises";
     );
   }
   const updatedMarkdown = Markdown.replace(
-    /:\|\s+(\|[ a-z0-9%]+){4}\|\n[^|]/,
+    /:\|\s+(\|[ a-z0-9%.]+){4}\|/i,
     ":|\n" + coverageRows.join("\n"),
   );
   await fs.writeFile(MarkdownPath, updatedMarkdown);

@@ -1,51 +1,55 @@
 # 🇮🇳 ForgeIndia
 
-** **
-> Struggling with English but still want to code in ForgeScript?
-> 
-> Say hello to **`forge.india`** – a Hinglish-powered package that lets you code the way *you* speak.
+**Your code, your accent, your rules.**
 
-No more worrying about grammar or syntax in English. With **ForgeIndia**, you can write Forgescript commands using a mix of Hindi and English – just like how you talk every day.
+> Tired of writing `$sendMessage` when your heart says `$msgBhej`?
+> **ForgeIndia** is here to desi-fy your ForgeScript code with Hinglish.
+> No grammar stress. No colon confusion. Just code the way you talk.
+
+---
 
 ## ✨ Features
 
-* Write code in *Hinglish* (Hindi + English)
-* Friendly syntax for native Hindi speakers
-* Perfect for beginners who want to focus on logic, not language
+* 🔤 Code in **Hinglish** (Hindi + English)
+* 🤝 Beginner-friendly for native Hindi speakers
+* 🧠 Focus on logic, not *angrezi*
+* 🚀 Works just like native ForgeScript — only chattier
+
+---
 
 ## 🚀 Example
 
-index.js:
+`index.js`:
+
 ```js
 const { ForgeIndia } = require("forge.india");
 const { ForgeClient } = require("@tryforge/forgescript");
 
 const client = new ForgeClient({
-    intents: [
-        "Guilds",
-        "MessageContent",
-        "GuildMessages",
-    ],
-    events: [],
-    mobile: true,
-    useInviteSystem: true,
-    prefixes: ["!", "<@$botID>"],
-    extensions: [
-        new ForgeIndia()
-    ],
-})
+  intents: ["Guilds", "MessageContent", "GuildMessages"],
+  events: ["ready", "messageCreate"],
+  mobile: true,
+  useInviteSystem: true,
+  prefixes: ["!", "<@$botID>"],
+  extensions: [new ForgeIndia()],
+});
 
-client.login("bot token")
+client.login("bot token");
 ```
 
-commands/test.js:
+`commands/test.js`:
+
 ```js
 module.exports = {
-    name: "up",
-    type: "messageCreate",
-    code: `$!msgReactionAddKaro[$chnlID;$msgID;👍]` 
-}
+  name: "up",
+  type: "messageCreate",
+  code: `$!msgReactionAddKaro[$chnlID;$msgID;👍]`
+};
 ```
+
+Yes, it works. No, you don't need a dictionary.
+
+---
 
 ## 📦 Installation
 
@@ -53,4 +57,30 @@ module.exports = {
 npm install https://github.com/user-lezi/ForgeIndia
 ```
 
-Start coding in your *apni bhasha* (your own language) today!
+You’re one `npm install` away from coding in your *apni bhasha*.
+
+---
+
+## 🧠 Why?
+
+Because `"sendMessage"` doesn't vibe the same as `"msgBhej"`.
+Because accessibility isn't just about screen readers — it's about *language* too.
+Because *English* shouldn't be a blocker to *logic*.
+
+---
+
+## 👥 Contribute
+
+Got a better translation for `$math`?
+Want `$msgDeleteKaro` to be a thing?
+
+👉 Check out [`CONTRIBUTING.md`](CONTRIBUTING.md) to learn how to submit your own Hinglish magic.
+
+---
+
+## 💖 Made with love
+
+This package is made for the **real** devs — the ones who think in Hindi, code in Hinglish, and build like pros.
+
+Go ahead. Write `$msgBhej`.
+Because *syntax should sound like you*.

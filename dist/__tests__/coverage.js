@@ -61,4 +61,4 @@ function progressBar(percent, width = 20) {
         console.log("-".repeat(30));
     }
 })();
-//# sourceMappingURL=completion.js.map
+//# sourceMappingURL=coverage.js.map

@@ -3,5 +3,5 @@
   "$addMessageReactions": ["$msgReactionAddKaro"],
   "$channelID": ["$chnlID"],
   "$messageID": ["$msgID"],
-  "$randomText": ["$faltuText", "$kuchBhi", "$kuchBhiText", "$randomLikhai", "$riggged"]
+  "$randomText": ["$faltuText", "$kuchBhi", "$kuchBhiText", "$randomLikhai", "$rigged"]
 }

@@ -49,7 +49,13 @@ Want to translate `$deleteMessage` into `$msgHatao`? Go for it.
    ```
 
    It’ll tell you how many functions you actually translated. Prepare to be humbled.
-6. Commit. Push. PR.
+6. Run this *life-changing* script to regenerate `COVERAGE.md`:
+   
+   ```bash
+   npm run prepublish
+   ```
+   Yes, it's called "prepublish." No, you're not publishing. Just roll with it.
+7. Commit. Push. PR.
    We’ll roast you if it’s bad. Merge it if it’s great.
 
 ---

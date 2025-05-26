@@ -17,7 +17,7 @@ const colors = {
 /**
  * Fetch all native ForgeScript function names.
  */
-async function fetchFunctionNames(): Promise<`$${string}`[]> {
+export async function fetchFunctionNames(): Promise<`$${string}`[]> {
   try {
     const res = await fetch(url);
     if (!res.ok) {
@@ -33,7 +33,7 @@ async function fetchFunctionNames(): Promise<`$${string}`[]> {
 /**
  * Load translation JSON for a given translation key.
  */
-async function loadTranslation(
+export async function loadTranslation(
   translationKey: ForgeIndiaTranslation,
 ): Promise<FITranslation> {
   const filePath = path.resolve(

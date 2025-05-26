@@ -25,7 +25,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "prettier src -w && tsc",
-    "test": "node dist/__tests__"
+    "test": "node dist/__tests__",
+    "prepublish": "npm run build && node dist/__tests__/coverage.md"
   },
   "devDependencies": {
     "@tryforge/forgescript": "^2.3.0",

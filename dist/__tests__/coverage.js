@@ -13,7 +13,10 @@ const colors = {
     reset: "\x1b[0m",
     green: "\x1b[32m",
     red: "\x1b[31m",
+    yellow: "\x1b[33m",
     bold: "\x1b[1m",
+    blue: "\x1b[34m",
+    magenta: "\x1b[35m",
 };
 async function fetchFunctionNames() {
     try {
@@ -57,6 +60,9 @@ function progressBar(percent, width = 40) {
         let translatedCount = 0;
         let line = 0;
         let fn;
+        const allAliases = new Set();
+        const aliasToOriginal = {};
+        const lowerCaseMap = new Map();
         for (fn in translationData) {
             line++;
             if (functionNames.includes(fn)) {
@@ -64,9 +70,31 @@ function progressBar(percent, width = 40) {
             }
             else {
                 console.log(`${colors.red}❌ [Line ${line}] Unknown ForgeScript function: ${fn}${colors.reset}`);
-                const suggestion = functionNames.find((f) => f.toLowerCase() === fn.toLowerCase());
-                if (suggestion) {
-                    console.log(`   🤔 Did you mean: ${colors.green}${suggestion}${colors.reset}?`);
+                const suggestions = findTopSuggestions(fn, functionNames);
+                if (suggestions.length) {
+                    console.log(`   🤔 Did you mean: ${colors.green}${suggestions.join(", ")}${colors.reset}?`);
+                }
+            }
+            const aliases = translationData[fn];
+            for (const alias of aliases) {
+                if (functionNames.includes(alias)) {
+                    console.warn(`${colors.red}⚠️ Alias '${alias}' for '${colors.bold}${fn}${colors.reset}${colors.red}' in '${translationKey}' conflicts with native ForgeScript function.${colors.reset}`);
+                }
+                if (allAliases.has(alias)) {
+                    const original = aliasToOriginal[alias];
+                    console.warn(`${colors.yellow}⚠️ Duplicate alias '${alias}' of '${colors.bold}${fn}${colors.reset}${colors.yellow}' found in '${translationKey}'`);
+                    console.warn(`   → Already used for: ${original}${colors.reset}`);
+                }
+                else {
+                    allAliases.add(alias);
+                    aliasToOriginal[alias] = fn;
+                }
+                const lower = alias.toLowerCase();
+                if (lowerCaseMap.has(lower) && lowerCaseMap.get(lower) !== alias) {
+                    console.warn(`${colors.magenta}⚠️ Case conflict: '${alias}' vs '${lowerCaseMap.get(lower)}' in '${translationKey}'${colors.reset}`);
+                }
+                else {
+                    lowerCaseMap.set(lower, alias);
                 }
             }
         }
@@ -79,4 +107,32 @@ function progressBar(percent, width = 40) {
         console.log("-".repeat(50));
     }
 })();
+function levenshtein(a, b) {
+    const matrix = [];
+    for (let i = 0; i <= b.length; i++) {
+        matrix[i] = [i];
+    }
+    for (let j = 0; j <= a.length; j++) {
+        matrix[0][j] = j;
+    }
+    for (let i = 1; i <= b.length; i++) {
+        for (let j = 1; j <= a.length; j++) {
+            if (b[i - 1] === a[j - 1]) {
+                matrix[i][j] = matrix[i - 1][j - 1];
+            }
+            else {
+                matrix[i][j] = Math.min(matrix[i - 1][j] + 1, matrix[i][j - 1] + 1, matrix[i - 1][j - 1] + 1);
+            }
+        }
+    }
+    return matrix[b.length][a.length];
+}
+function findTopSuggestions(input, candidates, max = 3) {
+    return candidates
+        .map((c) => ({ word: c, dist: levenshtein(input, c) }))
+        .sort((a, b) => a.dist - b.dist)
+        .slice(0, max)
+        .filter((x) => x.dist <= 3)
+        .map((x) => x.word);
+}
 //# sourceMappingURL=coverage.js.map

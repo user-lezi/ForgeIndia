@@ -74,7 +74,7 @@ Because *English* shouldn't be a blocker to *logic*.
 Got a better translation for `$math`?
 Want `$msgDeleteKaro` to be a thing?
 
-👉 Check out [`CONTRIBUTING.md`](CONTRIBUTING.md) to learn how to submit your own Hinglish magic.
+👉 Check out [`CONTRIBUTION.md`](CONTRIBUTION.md) to learn how to submit your own Hinglish magic.
 
 ---
 

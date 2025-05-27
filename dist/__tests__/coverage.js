@@ -3,11 +3,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
+exports.fetchFunctions = fetchFunctions;
 exports.fetchFunctionNames = fetchFunctionNames;
 exports.loadTranslation = loadTranslation;
 const typings_1 = require("../core/typings");
 const path_1 = __importDefault(require("path"));
 const promises_1 = __importDefault(require("fs/promises"));
+let done = false;
+let functionsCache = null;
 const url = "https://raw.githubusercontent.com/tryforge/ForgeScript/dev/metadata/functions.json";
 const colors = {
     reset: "\x1b[0m",
@@ -18,18 +21,23 @@ const colors = {
     blue: "\x1b[34m",
     magenta: "\x1b[35m",
 };
-async function fetchFunctionNames() {
+async function fetchFunctions() {
     try {
+        if (functionsCache)
+            return functionsCache;
         const res = await fetch(url);
         if (!res.ok) {
             throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
         }
         const json = await res.json();
-        return json.map((x) => x.name);
+        return (functionsCache = json);
     }
     catch (err) {
         throw new Error("Error fetching: " + err.message);
     }
+}
+async function fetchFunctionNames() {
+    return (await fetchFunctions()).map((x) => x.name);
 }
 async function loadTranslation(translationKey) {
     const filePath = path_1.default.resolve(__dirname, `../../translations/${translationKey}.json`);
@@ -51,6 +59,9 @@ function progressBar(percent, width = 40) {
     return colors.green + "█".repeat(filled) + colors.reset + "░".repeat(empty);
 }
 (async () => {
+    if (done)
+        return;
+    done = true;
     const functionNames = await fetchFunctionNames();
     const totalFunctions = functionNames.length;
     console.log(`\n${colors.bold}📜 Total ForgeScript functions: ${totalFunctions}${colors.reset}\n`);

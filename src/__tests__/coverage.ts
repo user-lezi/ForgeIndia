@@ -1,6 +1,12 @@
 import { FITranslation, ForgeIndiaTranslation } from "../core/typings";
 import path from "path";
 import fs from "fs/promises";
+import { INativeFunction } from "@tryforge/forgescript";
+
+let done = false;
+
+// Cache for fetch
+let functionsCache: Awaited<ReturnType<typeof fetchFunctions>> | null = null;
 
 // URL of the raw ForgeScript functions metadata JSON
 const url =
@@ -18,19 +24,29 @@ const colors = {
 };
 
 /**
- * Fetch all native ForgeScript function names.
+ * Fetch all native ForgeScript functions.
  */
-export async function fetchFunctionNames(): Promise<`$${string}`[]> {
+export async function fetchFunctions(): Promise<
+  (INativeFunction<any> & { category: string })[]
+> {
   try {
+    if (functionsCache) return functionsCache;
     const res = await fetch(url);
     if (!res.ok) {
       throw new Error(`Failed to fetch: ${res.status} ${res.statusText}`);
     }
     const json = await res.json();
-    return json.map((x: any) => x.name) as `$${string}`[];
+    return (functionsCache = json);
   } catch (err: any) {
     throw new Error("Error fetching: " + err.message);
   }
+}
+
+/**
+ * Fetch all native ForgeScript function names.
+ */
+export async function fetchFunctionNames(): Promise<`$${string}`[]> {
+  return (await fetchFunctions()).map((x) => x.name);
 }
 
 /**
@@ -69,6 +85,8 @@ function progressBar(percent: number, width = 40): string {
 }
 
 (async () => {
+  if (done) return;
+  done = true;
   const functionNames = await fetchFunctionNames();
   const totalFunctions = functionNames.length;
 

@@ -23,7 +23,7 @@ Because knowing your coverage is the first step to pretending you’re actually 
 
 | Translation Key    | Translated Functions | Total Functions | Coverage     |
 |:--------------------:|:---------------------:|:----------------:|:-------------:|
-| hinglish | 41 | 1025 | 4.00% |
+| hinglish | 81 | 1025 | 7.90% |
 
 
 

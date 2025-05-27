@@ -6,20 +6,45 @@
 
   "$channelID": ["$chnlID", "$channelKaID", "$chnID"],
   "$deleteChannels": ["$channelsUdaao", "$chnlDelete", "$deleteChnls", "$hataoChannels"],
-
   "$messageID": ["$msgID", "$messageKaID", "$idOfMsg"],
-  "$randomText": ["$kuchBhi", "$faltuText", "$kuchBhiText", "$randomLikhai", "$rigged", "$randomBol"],
 
   "$username": ["$naam", "$usernaam", "$naamOfUser", "$uname"],
   "$userTag": ["$pooraNaam", "$userKaTag", "$userPooraNaam"],
   "$userGlobalName": ["$sabkeSamneNaam", "$globalNaam"],
   "$randomUserID": ["$koiBhiID", "$userRandomID", "$kisiKaID"],
   "$isBot": ["$kyaBotHai", "$botCheck", "$botHaiKya"],
+  "$setBotName": ["$botKaNaamRakho", "$naamSetKaro", "$botKoNaamDo"],
+  "$setBotAvatar": ["$botKiPhotoLgao", "$botDPSetKaro", "$botAvatarLgao"],
+  "$userAvatar": ["$userKiPhoto", "$userKaChehra", "$uskiShakal"],
+  "$botOwnerID": ["$botKaMaalik", "$botKeBaapKaID"],
 
 
   "$sum": ["$jod", "$plusKaro", "$addKaro"],
   "$sub": ["$ghatao", "$minusKaro", "$subtractKaro"],
   "$math": ["$hisabKaro", "$calculateKaro", "$mathKaro", "$ganitKaro"],
+  "$multi": ["$gunaKaro", "$multiplyKaro"],
+  "$divide": ["$bato", "$bhaagKaro", "$divideKaro"],
+
   "$let": ["$varBanao", "$variableSetKaro", "$rakho"],
-  "$get": ["$varLo", "$nikalo", "$variablePao"]
+  "$get": ["$varLo", "$nikalo", "$variablePao"],
+
+  "$and": ["$aur"],
+  "$or": ["$ya"],
+  "$checkCondition": ["$halatDekho", "$shartCheckKaro", "$conditionCheck"],
+  "$checkContains": ["$haiKya", "$shamilHaiKya", "$payaGayaKya"],
+  "$stop": ["$rukJao", "$bandKaro", "$abBas"],
+  "$onlyIf": ["$sirfAgar", "$basTabhi", "$tabhiChalega"],
+  "$onlyForUsers": ["$yeUsersHi", "$khaaliInUsersKeLiye"],
+  "$onlyForChannels": ["$yeChannelsHi", "$khaaliInChannelsKeLiye"],
+  "$if": ["$agar", "$sochoAgar", "$ifKaro"],
+  "$else": ["$varna", "$nahiTo", "$elseWala"],
+  "$elseIf": ["$warnaAgar", "$phirAgar"],
+  "$loop": ["$ghumao", "$barbarChalao", "$loopLagao"],
+  "$while": ["$jabTak", "$conditionTak"],
+
+  "$reverseText": ["$textUlatDo", "$palatText", "$ultaLikhai"],
+  "$toLowerCase": ["$chhotaText", "$lowercaseKaro", "$textChotaKaro"],
+  "$toUpperCase": ["$badaText", "$uppercaseKaro", "$textBadaKaro"],
+  "$toTitleCase": ["$naamJaisaText", "$titleBanao"],
+  "$randomText": ["$kuchBhi", "$faltuText", "$kuchBhiText", "$randomLikhai", "$rigged", "$randomBol"]
 }

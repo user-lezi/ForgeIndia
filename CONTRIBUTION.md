@@ -45,7 +45,7 @@ Want to translate `$deleteMessage` into `$msgHatao`? Go for it.
    Run:
 
    ```bash
-   node dist/__tests__/coverage.ts
+   node dist/__tests__/coverage.js
    ```
 
    It’ll tell you how many functions you actually translated. Prepare to be humbled.

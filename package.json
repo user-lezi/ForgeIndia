@@ -1,14 +1,14 @@
 {
   "name": "forge.india",
   "version": "1.0.0",
-  "description": "India on top🔥🔥🔥",
+  "description": "Write ForgeScript in Hinglish – India on top 🔥",
   "keywords": [
-    "forge.india",
     "ForgeIndia",
-    "india",
+    "hinglish",
     "forge",
+    "forgescript",
     "tryforge",
-    "forgescript"
+    "india"
   ],
   "homepage": "https://github.com/user-lezi/ForgeIndia#readme",
   "bugs": {
@@ -26,7 +26,7 @@
   "scripts": {
     "build": "prettier src -w && tsc",
     "test": "node dist/__tests__",
-    "prepublish": "npm run build && node dist/__tests__/sortTranslations && node dist/__tests__/coverage.md"
+    "prepare": "npm run build && node dist/__tests__/sortTranslations && node dist/__tests__/coverage.md"
   },
   "devDependencies": {
     "@tryforge/forgescript": "^2.3.0",

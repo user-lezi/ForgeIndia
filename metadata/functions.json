@@ -9,16 +9,13 @@
     ],
     "category": "bot",
     "aliases": [
-      "$botKitneHain",
       "$kitneBots"
     ]
   },
   {
     "name": "$botKaDesc",
     "version": "1.5.0",
-    "aliases": [
-      "$botKaDesc"
-    ],
+    "aliases": [],
     "description": "Returns the description of the bot",
     "unwrap": false,
     "output": [
@@ -30,7 +27,6 @@
     "name": "$botUdaao",
     "version": "1.0.0",
     "aliases": [
-      "$botUdaao",
       "$botBandKaro"
     ],
     "description": "Destroys the discord.js client",
@@ -42,9 +38,7 @@
     "version": "1.0.0",
     "description": "Returns the client's id",
     "unwrap": false,
-    "aliases": [
-      "$botKaID"
-    ],
+    "aliases": [],
     "output": [
       "User"
     ],
@@ -57,7 +51,6 @@
     "brackets": false,
     "unwrap": true,
     "aliases": [
-      "$botBulawo",
       "$botKaInvite",
       "$botKoBulawo"
     ],
@@ -81,7 +74,6 @@
     "description": "Returns the bot owner id",
     "brackets": false,
     "aliases": [
-      "$botKeBaapKaID",
       "$botKaMaalik"
     ],
     "args": [
@@ -111,7 +103,6 @@
     "description": "The current bot ping",
     "unwrap": false,
     "aliases": [
-      "$latencyCheckKaro",
       "$botPing",
       "$pingCheck"
     ],
@@ -127,7 +118,6 @@
     "brackets": true,
     "unwrap": true,
     "aliases": [
-      "$botKiPhotoLgao",
       "$botAvatarLgao",
       "$botDPSetKaro"
     ],
@@ -152,7 +142,6 @@
     "brackets": true,
     "unwrap": true,
     "aliases": [
-      "$botBannerSetKaro",
       "$botKiBannerLgao"
     ],
     "args": [
@@ -174,7 +163,6 @@
     "version": "1.5.0",
     "description": "Sets the bot description",
     "aliases": [
-      "$botKaDescSetKaro",
       "$setBotDesc"
     ],
     "brackets": true,
@@ -200,7 +188,6 @@
     "brackets": true,
     "unwrap": true,
     "aliases": [
-      "$botKaNaamRakho",
       "$botKoNaamDo",
       "$naamSetKaro"
     ],
@@ -222,7 +209,6 @@
     "name": "$botKabSeChalRaha",
     "version": "1.0.0",
     "aliases": [
-      "$botKabSeChalRaha",
       "$kitneTimeSeBotChalRaha"
     ],
     "output": [
@@ -252,7 +238,6 @@
     ],
     "category": "channel",
     "aliases": [
-      "$chnlID",
       "$channelKaID",
       "$chnID"
     ]
@@ -262,7 +247,6 @@
     "version": "1.0.5",
     "description": "Deletes given channels, returns the count of channels deleted",
     "aliases": [
-      "$channelsUdaao",
       "$chnlDelete",
       "$deleteChnls",
       "$hataoChannels"
@@ -286,7 +270,6 @@
   {
     "name": "$messageBhej",
     "aliases": [
-      "$messageBhej",
       "$bolDo",
       "$msgBhej",
       "$sandeshBhej",
@@ -342,9 +325,7 @@
       }
     ],
     "category": "condition",
-    "aliases": [
-      "$aur"
-    ]
+    "aliases": []
   },
   {
     "name": "$halatDekho",
@@ -367,7 +348,6 @@
     ],
     "category": "condition",
     "aliases": [
-      "$halatDekho",
       "$conditionCheck",
       "$shartCheckKaro"
     ]
@@ -392,9 +372,7 @@
       }
     ],
     "category": "condition",
-    "aliases": [
-      "$ya"
-    ]
+    "aliases": []
   },
   {
     "name": "$yeChannelsHi",
@@ -421,7 +399,6 @@
     ],
     "category": "limiter",
     "aliases": [
-      "$yeChannelsHi",
       "$khaaliInChannelsKeLiye"
     ]
   },
@@ -449,7 +426,6 @@
     ],
     "category": "limiter",
     "aliases": [
-      "$yeUsersHi",
       "$khaaliInUsersKeLiye"
     ]
   },
@@ -477,7 +453,6 @@
     ],
     "category": "limiter",
     "aliases": [
-      "$sirfAgar",
       "$basTabhi",
       "$tabhiChalega"
     ]
@@ -489,7 +464,6 @@
     "unwrap": false,
     "category": "limiter",
     "aliases": [
-      "$rukJao",
       "$abBas",
       "$bandKaro"
     ]
@@ -520,7 +494,6 @@
     "unwrap": true,
     "category": "lookup",
     "aliases": [
-      "$channelDhoondo",
       "$chnlKhojo"
     ]
   },
@@ -591,7 +564,6 @@
     "unwrap": true,
     "category": "lookup",
     "aliases": [
-      "$channelsDhoondo",
       "$chnlsKhojo"
     ]
   },
@@ -615,7 +587,6 @@
     "unwrap": true,
     "category": "lookup",
     "aliases": [
-      "$emojiKhojo",
       "$emojiDhoondo"
     ]
   },
@@ -652,7 +623,6 @@
     "unwrap": true,
     "category": "lookup",
     "aliases": [
-      "$memberKhojo",
       "$memberDhoondo"
     ]
   },
@@ -728,7 +698,6 @@
     ],
     "category": "lookup",
     "aliases": [
-      "$membersKhojo",
       "$membersDhoondo"
     ]
   },
@@ -758,7 +727,6 @@
     "unwrap": true,
     "category": "lookup",
     "aliases": [
-      "$userKhojo",
       "$userDhoondo"
     ]
   },
@@ -782,7 +750,6 @@
     ],
     "category": "math",
     "aliases": [
-      "$bato",
       "$bhaagKaro",
       "$divideKaro"
     ]
@@ -807,7 +774,6 @@
     ],
     "category": "math",
     "aliases": [
-      "$hisabKaro",
       "$calculateKaro",
       "$ganitKaro",
       "$mathKaro"
@@ -833,7 +799,6 @@
     ],
     "category": "math",
     "aliases": [
-      "$gunaKaro",
       "$multiplyKaro"
     ]
   },
@@ -857,7 +822,6 @@
     ],
     "category": "math",
     "aliases": [
-      "$ghatao",
       "$minusKaro",
       "$subtractKaro"
     ]
@@ -882,7 +846,6 @@
     ],
     "category": "math",
     "aliases": [
-      "$jod",
       "$addKaro",
       "$plusKaro"
     ]
@@ -891,7 +854,6 @@
     "name": "$nikalBahar",
     "version": "1.0.0",
     "aliases": [
-      "$nikalBahar",
       "$banKaro",
       "$blockKaro"
     ],
@@ -937,7 +899,6 @@
     "description": "Returns whether given member has any of the provided perms",
     "unwrap": true,
     "aliases": [
-      "$iskePaasKuchPermsHai",
       "$kuchTohPermsHai"
     ],
     "brackets": true,
@@ -1029,7 +990,6 @@
     "description": "Returns whether given member has X perms",
     "unwrap": true,
     "aliases": [
-      "$iskePaasPermsHai",
       "$kyaPermsHai"
     ],
     "brackets": true,
@@ -1121,7 +1081,6 @@
     "brackets": true,
     "unwrap": true,
     "aliases": [
-      "$bannedHaiKya",
       "$kyaBannedHai"
     ],
     "output": [
@@ -1153,7 +1112,6 @@
     "unwrap": true,
     "brackets": true,
     "aliases": [
-      "$laatMar",
       "$kickKaro",
       "$memberKickKaro"
     ],
@@ -1225,7 +1183,6 @@
     "unwrap": true,
     "category": "member",
     "aliases": [
-      "$memberKiPhoto",
       "$memberDP"
     ]
   },
@@ -1268,9 +1225,7 @@
     ],
     "unwrap": true,
     "category": "member",
-    "aliases": [
-      "$memberKaBanner"
-    ]
+    "aliases": []
   },
   {
     "name": "$memberKaRangDikhao",
@@ -1300,7 +1255,6 @@
     ],
     "category": "member",
     "aliases": [
-      "$memberKaRangDikhao",
       "$memberKaColor"
     ]
   },
@@ -1332,7 +1286,6 @@
     ],
     "category": "member",
     "aliases": [
-      "$memberKaNaamDikhao",
       "$memberNaam"
     ]
   },
@@ -1363,9 +1316,7 @@
       }
     ],
     "category": "member",
-    "aliases": [
-      "$yeKaunseNumberParAaya"
-    ]
+    "aliases": []
   },
   {
     "name": "$memberKaNaamBadlo",
@@ -1401,7 +1352,6 @@
     ],
     "category": "member",
     "aliases": [
-      "$memberKaNaamBadlo",
       "$nicknameLagao"
     ]
   },
@@ -1411,7 +1361,6 @@
     "description": "Returns the member nickname",
     "brackets": false,
     "aliases": [
-      "$nicknameKya",
       "$iskoKyaBolteHai",
       "$nickBatado"
     ],
@@ -1458,7 +1407,6 @@
     ],
     "category": "member",
     "aliases": [
-      "$koiBhiMemberKiID",
       "$randomBandaa"
     ]
   },
@@ -1468,7 +1416,6 @@
     "brackets": true,
     "unwrap": true,
     "aliases": [
-      "$banHatao",
       "$unbanKaro",
       "$unblockKaro",
       "$wapisLao"
@@ -1536,7 +1483,6 @@
     ],
     "category": "message",
     "aliases": [
-      "$msgReactionAddKaro",
       "$emoteLagao",
       "$reactionAdd",
       "$reactionLagao"
@@ -1551,7 +1497,6 @@
       "Number"
     ],
     "aliases": [
-      "$msgHatao",
       "$deleteMsg",
       "$hataDoMsg"
     ],
@@ -1585,7 +1530,6 @@
     ],
     "category": "message",
     "aliases": [
-      "$msgID",
       "$idOfMsg",
       "$messageKaID"
     ]
@@ -1621,7 +1565,6 @@
     ],
     "category": "message",
     "aliases": [
-      "$jawabDo",
       "$bolWapas",
       "$replyKaro",
       "$uttarDo"
@@ -1647,7 +1590,6 @@
     "brackets": true,
     "category": "statement",
     "aliases": [
-      "$varna",
       "$elseWala",
       "$nahiTo"
     ]
@@ -1679,7 +1621,6 @@
     "brackets": true,
     "category": "statement",
     "aliases": [
-      "$warnaAgar",
       "$phirAgar"
     ]
   },
@@ -1716,7 +1657,6 @@
     "brackets": true,
     "category": "statement",
     "aliases": [
-      "$agar",
       "$ifKaro",
       "$sochoAgar"
     ]
@@ -1763,7 +1703,6 @@
     ],
     "category": "statement",
     "aliases": [
-      "$ghumao",
       "$barbarChalao",
       "$loopLagao"
     ]
@@ -1798,7 +1737,6 @@
     "brackets": true,
     "category": "statement",
     "aliases": [
-      "$koshishKaro",
       "$tryKaro"
     ]
   },
@@ -1828,7 +1766,6 @@
     ],
     "category": "statement",
     "aliases": [
-      "$jabTak",
       "$conditionTak"
     ]
   },
@@ -1836,7 +1773,6 @@
     "name": "$haiKya",
     "version": "1.0.0",
     "aliases": [
-      "$haiKya",
       "$payaGayaKya",
       "$shamilHaiKya"
     ],
@@ -1884,7 +1820,6 @@
     ],
     "category": "string",
     "aliases": [
-      "$kuchBhi",
       "$faltuText",
       "$kuchBhiText",
       "$randomBol",
@@ -1896,7 +1831,6 @@
     "name": "$textUlatDo",
     "version": "1.5.0",
     "aliases": [
-      "$textUlatDo",
       "$palatText",
       "$ultaLikhai"
     ],
@@ -1934,7 +1868,6 @@
     "brackets": true,
     "category": "string",
     "aliases": [
-      "$chhotaText",
       "$lowercaseKaro",
       "$textChotaKaro"
     ]
@@ -1959,7 +1892,6 @@
     ],
     "category": "string",
     "aliases": [
-      "$naamJaisaText",
       "$titleBanao"
     ]
   },
@@ -1983,7 +1915,6 @@
     "brackets": true,
     "category": "string",
     "aliases": [
-      "$badaText",
       "$textBadaKaro",
       "$uppercaseKaro"
     ]
@@ -1993,7 +1924,6 @@
     "version": "1.2.0",
     "description": "Returns current day of month",
     "aliases": [
-      "$din",
       "$aajKaDin"
     ],
     "unwrap": true,
@@ -2020,9 +1950,7 @@
     "name": "$hafteKaDin",
     "version": "2.3.0",
     "description": "Returns current day of week",
-    "aliases": [
-      "$hafteKaDin"
-    ],
+    "aliases": [],
     "unwrap": true,
     "brackets": false,
     "args": [
@@ -2070,7 +1998,6 @@
     ],
     "category": "time",
     "aliases": [
-      "$ghanta",
       "$ghante"
     ]
   },
@@ -2097,9 +2024,7 @@
       "Number"
     ],
     "category": "time",
-    "aliases": [
-      "$minat"
-    ]
+    "aliases": []
   },
   {
     "name": "$mahina",
@@ -2127,9 +2052,7 @@
       "String"
     ],
     "category": "time",
-    "aliases": [
-      "$mahina"
-    ]
+    "aliases": []
   },
   {
     "name": "$hafta",
@@ -2140,9 +2063,7 @@
       "Number"
     ],
     "category": "time",
-    "aliases": [
-      "$hafta"
-    ]
+    "aliases": []
   },
   {
     "name": "$saal",
@@ -2168,7 +2089,6 @@
     ],
     "category": "time",
     "aliases": [
-      "$saal",
       "$varsh"
     ]
   },
@@ -2192,7 +2112,6 @@
     "brackets": false,
     "category": "user",
     "aliases": [
-      "$kyaBotHai",
       "$botCheck",
       "$botHaiKya"
     ]
@@ -2207,7 +2126,6 @@
     ],
     "category": "user",
     "aliases": [
-      "$koiBhiID",
       "$kisiKaID",
       "$userRandomID"
     ]
@@ -2243,9 +2161,7 @@
       }
     ],
     "category": "user",
-    "aliases": [
-      "$dmBhej"
-    ]
+    "aliases": []
   },
   {
     "name": "$userKiPhoto",
@@ -2279,7 +2195,6 @@
     "unwrap": true,
     "category": "user",
     "aliases": [
-      "$userKiPhoto",
       "$userKaChehra",
       "$userKiShakal"
     ]
@@ -2315,9 +2230,7 @@
     ],
     "unwrap": true,
     "category": "user",
-    "aliases": [
-      "$userKaBanner"
-    ]
+    "aliases": []
   },
   {
     "name": "$userKitneHain",
@@ -2329,7 +2242,6 @@
     ],
     "category": "user",
     "aliases": [
-      "$userKitneHain",
       "$kitneUsers"
     ]
   },
@@ -2353,7 +2265,6 @@
     "brackets": false,
     "category": "user",
     "aliases": [
-      "$sabkeSamneNaam",
       "$globalNaam"
     ]
   },
@@ -2377,7 +2288,6 @@
     ],
     "category": "user",
     "aliases": [
-      "$puraNaam",
       "$userKaPuraNaam",
       "$userKaTag",
       "$userPuraNaam"
@@ -2402,7 +2312,6 @@
     "unwrap": true,
     "category": "user",
     "aliases": [
-      "$naam",
       "$naamOfUser",
       "$uname",
       "$usernaam"
@@ -2428,7 +2337,6 @@
     "brackets": true,
     "category": "variable",
     "aliases": [
-      "$varLo",
       "$nikalo",
       "$variablePao"
     ]
@@ -2457,7 +2365,6 @@
     "brackets": true,
     "category": "variable",
     "aliases": [
-      "$varBanao",
       "$rakho",
       "$variableSetKaro"
     ]

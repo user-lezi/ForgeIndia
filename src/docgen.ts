@@ -31,14 +31,17 @@ const hinglishTranslations: HinglishMap = JSON.parse(
   fs.readFileSync(translationsPath, "utf-8"),
 );
 
-// Build metadata including aliases from hinglish.json if present
+// Build metadata with new name and aliases from hinglish.json if present
 const metadataWithAliases: MetadataEntry[] = functionsData
   .map((func) => {
     const aliases = hinglishTranslations[func.name];
     if (!Array.isArray(aliases) || aliases.length === 0) return null;
 
+    const newName = aliases[0];
+
     return {
       ...func,
+      name: newName,
       aliases,
     };
   })
@@ -58,5 +61,5 @@ fs.writeFileSync(
 );
 
 console.log(
-  `✅ Metadata written with Hinglish aliases for ${metadataWithAliases.length} functions at: ${outputPath}`,
+  `✅ Metadata written with updated names and Hinglish aliases for ${metadataWithAliases.length} functions at: ${outputPath}`,
 );

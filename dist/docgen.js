@@ -45,8 +45,10 @@ const metadataWithAliases = functionsData
     const aliases = hinglishTranslations[func.name];
     if (!Array.isArray(aliases) || aliases.length === 0)
         return null;
+    const newName = aliases[0];
     return {
         ...func,
+        name: newName,
         aliases,
     };
 })
@@ -56,5 +58,5 @@ if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir, { recursive: true });
 }
 fs.writeFileSync(outputPath, JSON.stringify(metadataWithAliases, null, 2), "utf-8");
-console.log(`✅ Metadata written with Hinglish aliases for ${metadataWithAliases.length} functions at: ${outputPath}`);
+console.log(`✅ Metadata written with updated names and Hinglish aliases for ${metadataWithAliases.length} functions at: ${outputPath}`);
 //# sourceMappingURL=docgen.js.map

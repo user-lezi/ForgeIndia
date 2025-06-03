@@ -1,6 +1,6 @@
 [
   {
-    "name": "$botCount",
+    "name": "$botKitneHain",
     "version": "1.0.0",
     "description": "Returns the bot count of the bot",
     "unwrap": false,
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "name": "$botDescription",
+    "name": "$botKaDesc",
     "version": "1.5.0",
     "aliases": [
       "$botKaDesc"
@@ -27,7 +27,7 @@
     "category": "bot"
   },
   {
-    "name": "$botDestroy",
+    "name": "$botUdaao",
     "version": "1.0.0",
     "aliases": [
       "$botUdaao",
@@ -38,7 +38,7 @@
     "category": "bot"
   },
   {
-    "name": "$botID",
+    "name": "$botKaID",
     "version": "1.0.0",
     "description": "Returns the client's id",
     "unwrap": false,
@@ -51,7 +51,7 @@
     "category": "bot"
   },
   {
-    "name": "$botInvite",
+    "name": "$botBulawo",
     "version": "1.0.0",
     "description": "Returns a bot's invite link",
     "brackets": false,
@@ -76,7 +76,7 @@
     "category": "bot"
   },
   {
-    "name": "$botOwnerID",
+    "name": "$botKeBaapKaID",
     "version": "1.0.0",
     "description": "Returns the bot owner id",
     "brackets": false,
@@ -106,7 +106,7 @@
     "category": "bot"
   },
   {
-    "name": "$ping",
+    "name": "$latencyCheckKaro",
     "version": "1.0.0",
     "description": "The current bot ping",
     "unwrap": false,
@@ -121,7 +121,7 @@
     "category": "bot"
   },
   {
-    "name": "$setBotAvatar",
+    "name": "$botKiPhotoLgao",
     "version": "1.0.0",
     "description": "Sets the bot profile icon",
     "brackets": true,
@@ -146,7 +146,7 @@
     "category": "bot"
   },
   {
-    "name": "$setBotBanner",
+    "name": "$botBannerSetKaro",
     "version": "1.5.0",
     "description": "Sets the bot banner",
     "brackets": true,
@@ -170,7 +170,7 @@
     "category": "bot"
   },
   {
-    "name": "$setBotDescription",
+    "name": "$botKaDescSetKaro",
     "version": "1.5.0",
     "description": "Sets the bot description",
     "aliases": [
@@ -194,7 +194,7 @@
     "category": "bot"
   },
   {
-    "name": "$setBotName",
+    "name": "$botKaNaamRakho",
     "version": "1.0.0",
     "description": "Sets the bot name",
     "brackets": true,
@@ -219,7 +219,7 @@
     "category": "bot"
   },
   {
-    "name": "$uptime",
+    "name": "$botKabSeChalRaha",
     "version": "1.0.0",
     "aliases": [
       "$botKabSeChalRaha",
@@ -233,7 +233,7 @@
     "category": "bot"
   },
   {
-    "name": "$channelID",
+    "name": "$chnlID",
     "version": "1.0.0",
     "description": "Gets the channel id of a channel name",
     "unwrap": true,
@@ -258,7 +258,7 @@
     ]
   },
   {
-    "name": "$deleteChannels",
+    "name": "$channelsUdaao",
     "version": "1.0.5",
     "description": "Deletes given channels, returns the count of channels deleted",
     "aliases": [
@@ -284,7 +284,7 @@
     "category": "channel"
   },
   {
-    "name": "$sendMessage",
+    "name": "$messageBhej",
     "aliases": [
       "$messageBhej",
       "$bolDo",
@@ -323,7 +323,7 @@
     "category": "channel"
   },
   {
-    "name": "$and",
+    "name": "$aur",
     "version": "1.0.0",
     "description": "Validates multiple conditions",
     "unwrap": false,
@@ -347,7 +347,7 @@
     ]
   },
   {
-    "name": "$checkCondition",
+    "name": "$halatDekho",
     "version": "1.0.0",
     "description": "Checks whether a condition is valid",
     "brackets": true,
@@ -373,7 +373,7 @@
     ]
   },
   {
-    "name": "$or",
+    "name": "$ya",
     "version": "1.0.0",
     "description": "Validates one condition",
     "unwrap": false,
@@ -397,7 +397,7 @@
     ]
   },
   {
-    "name": "$onlyForChannels",
+    "name": "$yeChannelsHi",
     "version": "1.5.0",
     "description": "Only executes code if given ids match the current channel",
     "brackets": true,
@@ -426,7 +426,7 @@
     ]
   },
   {
-    "name": "$onlyForUsers",
+    "name": "$yeUsersHi",
     "version": "1.1.0",
     "description": "Only executes code if given ids match the author",
     "brackets": true,
@@ -454,7 +454,7 @@
     ]
   },
   {
-    "name": "$onlyIf",
+    "name": "$sirfAgar",
     "version": "1.0.0",
     "description": "Stop execution if condition is not matched",
     "unwrap": false,
@@ -483,7 +483,7 @@
     ]
   },
   {
-    "name": "$stop",
+    "name": "$rukJao",
     "version": "1.0.0",
     "description": "Stops code execution",
     "unwrap": false,
@@ -495,7 +495,7 @@
     ]
   },
   {
-    "name": "$findChannel",
+    "name": "$channelDhoondo",
     "version": "1.0.0",
     "description": "Finds a channel",
     "brackets": true,
@@ -525,7 +525,7 @@
     ]
   },
   {
-    "name": "$findChannels",
+    "name": "$channelsDhoondo",
     "version": "1.5.0",
     "description": "Finds channels of a guild using a query",
     "brackets": true,
@@ -596,7 +596,7 @@
     ]
   },
   {
-    "name": "$findEmoji",
+    "name": "$emojiKhojo",
     "version": "1.0.0",
     "description": "Finds an emoji",
     "brackets": true,
@@ -620,7 +620,7 @@
     ]
   },
   {
-    "name": "$findMember",
+    "name": "$memberKhojo",
     "version": "1.0.0",
     "description": "Finds a member of a guild",
     "brackets": true,
@@ -657,7 +657,7 @@
     ]
   },
   {
-    "name": "$findMembers",
+    "name": "$membersKhojo",
     "version": "1.4.0",
     "description": "Finds member of a guild using a query",
     "brackets": true,
@@ -733,7 +733,7 @@
     ]
   },
   {
-    "name": "$findUser",
+    "name": "$userKhojo",
     "version": "1.0.0",
     "description": "Finds a user",
     "brackets": true,
@@ -763,7 +763,7 @@
     ]
   },
   {
-    "name": "$divide",
+    "name": "$bato",
     "version": "1.0.0",
     "description": "Divides multiple numbers",
     "brackets": true,
@@ -788,7 +788,7 @@
     ]
   },
   {
-    "name": "$math",
+    "name": "$hisabKaro",
     "version": "1.0.0",
     "description": "Run math expression, returns nothing if incorrect expression",
     "brackets": true,
@@ -814,7 +814,7 @@
     ]
   },
   {
-    "name": "$multi",
+    "name": "$gunaKaro",
     "version": "1.0.0",
     "description": "Multiplies multiple numbers",
     "brackets": true,
@@ -838,7 +838,7 @@
     ]
   },
   {
-    "name": "$sub",
+    "name": "$ghatao",
     "version": "1.0.0",
     "description": "Subtracts multiple numbers",
     "brackets": true,
@@ -863,7 +863,7 @@
     ]
   },
   {
-    "name": "$sum",
+    "name": "$jod",
     "version": "1.0.0",
     "description": "Adds multiple numbers",
     "brackets": true,
@@ -888,7 +888,7 @@
     ]
   },
   {
-    "name": "$ban",
+    "name": "$nikalBahar",
     "version": "1.0.0",
     "aliases": [
       "$nikalBahar",
@@ -932,7 +932,7 @@
     "category": "member"
   },
   {
-    "name": "$hasAnyPerms",
+    "name": "$iskePaasKuchPermsHai",
     "version": "1.4.0",
     "description": "Returns whether given member has any of the provided perms",
     "unwrap": true,
@@ -1024,7 +1024,7 @@
     "category": "member"
   },
   {
-    "name": "$hasPerms",
+    "name": "$iskePaasPermsHai",
     "version": "1.0.0",
     "description": "Returns whether given member has X perms",
     "unwrap": true,
@@ -1116,7 +1116,7 @@
     "category": "member"
   },
   {
-    "name": "$isBanned",
+    "name": "$bannedHaiKya",
     "version": "1.0.0",
     "brackets": true,
     "unwrap": true,
@@ -1147,7 +1147,7 @@
     "category": "member"
   },
   {
-    "name": "$kickMember",
+    "name": "$laatMar",
     "version": "1.0.0",
     "description": "Kicks a member from the guild, returns true or false depending on whether the action was successfully performed",
     "unwrap": true,
@@ -1186,7 +1186,7 @@
     "category": "member"
   },
   {
-    "name": "$memberAvatar",
+    "name": "$memberKiPhoto",
     "version": "1.0.0",
     "description": "Returns the member avatar",
     "brackets": false,
@@ -1230,7 +1230,7 @@
     ]
   },
   {
-    "name": "$memberBanner",
+    "name": "$memberKaBanner",
     "version": "2.1.0",
     "description": "Returns the member banner",
     "brackets": false,
@@ -1273,7 +1273,7 @@
     ]
   },
   {
-    "name": "$memberDisplayColor",
+    "name": "$memberKaRangDikhao",
     "version": "1.0.0",
     "description": "Returns the display color of a member",
     "unwrap": true,
@@ -1305,7 +1305,7 @@
     ]
   },
   {
-    "name": "$memberDisplayName",
+    "name": "$memberKaNaamDikhao",
     "version": "2.3.0",
     "description": "Returns the display name of a member",
     "unwrap": true,
@@ -1337,7 +1337,7 @@
     ]
   },
   {
-    "name": "$memberJoinPosition",
+    "name": "$yeKaunseNumberParAaya",
     "version": "1.5.0",
     "description": "Returns the position at which the member joined the guild",
     "unwrap": true,
@@ -1368,7 +1368,7 @@
     ]
   },
   {
-    "name": "$memberSetNickname",
+    "name": "$memberKaNaamBadlo",
     "version": "1.0.7",
     "description": "Edits a member's nickname",
     "brackets": true,
@@ -1406,7 +1406,7 @@
     ]
   },
   {
-    "name": "$nickname",
+    "name": "$nicknameKya",
     "version": "1.0.0",
     "description": "Returns the member nickname",
     "brackets": false,
@@ -1439,7 +1439,7 @@
     "category": "member"
   },
   {
-    "name": "$randomMemberID",
+    "name": "$koiBhiMemberKiID",
     "version": "1.0.3",
     "description": "Returns a random member ID of a guild",
     "unwrap": true,
@@ -1463,7 +1463,7 @@
     ]
   },
   {
-    "name": "$unban",
+    "name": "$banHatao",
     "version": "1.0.0",
     "brackets": true,
     "unwrap": true,
@@ -1502,7 +1502,7 @@
     "category": "member"
   },
   {
-    "name": "$addMessageReactions",
+    "name": "$msgReactionAddKaro",
     "version": "1.0.0",
     "description": "Adds reactions to a message, returns amount of emojis successfully reacted",
     "unwrap": true,
@@ -1543,7 +1543,7 @@
     ]
   },
   {
-    "name": "$deleteMessage",
+    "name": "$msgHatao",
     "version": "1.0.0",
     "brackets": true,
     "unwrap": true,
@@ -1576,7 +1576,7 @@
     "category": "message"
   },
   {
-    "name": "$messageID",
+    "name": "$msgID",
     "version": "1.0.0",
     "description": "Returns the message id",
     "unwrap": false,
@@ -1591,7 +1591,7 @@
     ]
   },
   {
-    "name": "$reply",
+    "name": "$jawabDo",
     "version": "1.0.0",
     "description": "Marks the response as a reply",
     "unwrap": true,
@@ -1628,7 +1628,7 @@
     ]
   },
   {
-    "name": "$else",
+    "name": "$varna",
     "version": "1.2.0",
     "description": "Creates an else statement",
     "unwrap": true,
@@ -1653,7 +1653,7 @@
     ]
   },
   {
-    "name": "$elseIf",
+    "name": "$warnaAgar",
     "version": "1.2.0",
     "description": "Creates an else if statement",
     "unwrap": false,
@@ -1684,7 +1684,7 @@
     ]
   },
   {
-    "name": "$if",
+    "name": "$agar",
     "version": "1.0.0",
     "description": "Creates an if statement",
     "unwrap": false,
@@ -1722,7 +1722,7 @@
     ]
   },
   {
-    "name": "$loop",
+    "name": "$ghumao",
     "version": "1.4.0",
     "description": "Executes given code for N times",
     "unwrap": false,
@@ -1769,7 +1769,7 @@
     ]
   },
   {
-    "name": "$try",
+    "name": "$koshishKaro",
     "version": "1.0.0",
     "experimental": true,
     "description": "Handles a possible error from given code",
@@ -1803,7 +1803,7 @@
     ]
   },
   {
-    "name": "$while",
+    "name": "$jabTak",
     "version": "1.0.3",
     "description": "Executes code while a condition is true",
     "unwrap": false,
@@ -1833,7 +1833,7 @@
     ]
   },
   {
-    "name": "$checkContains",
+    "name": "$haiKya",
     "version": "1.0.0",
     "aliases": [
       "$haiKya",
@@ -1865,7 +1865,7 @@
     "category": "string"
   },
   {
-    "name": "$randomText",
+    "name": "$kuchBhi",
     "version": "1.0.0",
     "description": "Returns a random text (no cache)",
     "unwrap": true,
@@ -1893,7 +1893,7 @@
     ]
   },
   {
-    "name": "$reverseText",
+    "name": "$textUlatDo",
     "version": "1.5.0",
     "aliases": [
       "$textUlatDo",
@@ -1915,7 +1915,7 @@
     "category": "string"
   },
   {
-    "name": "$toLowerCase",
+    "name": "$chhotaText",
     "version": "1.0.0",
     "description": "Makes a string lowercase",
     "unwrap": true,
@@ -1940,7 +1940,7 @@
     ]
   },
   {
-    "name": "$toTitleCase",
+    "name": "$naamJaisaText",
     "version": "1.0.6",
     "description": "Converts a string to title case",
     "brackets": true,
@@ -1964,7 +1964,7 @@
     ]
   },
   {
-    "name": "$toUpperCase",
+    "name": "$badaText",
     "version": "1.0.0",
     "description": "Makes a string uppercase",
     "unwrap": true,
@@ -1989,7 +1989,7 @@
     ]
   },
   {
-    "name": "$day",
+    "name": "$din",
     "version": "1.2.0",
     "description": "Returns current day of month",
     "aliases": [
@@ -2017,7 +2017,7 @@
     "category": "time"
   },
   {
-    "name": "$dayOfWeek",
+    "name": "$hafteKaDin",
     "version": "2.3.0",
     "description": "Returns current day of week",
     "aliases": [
@@ -2047,7 +2047,7 @@
     "category": "time"
   },
   {
-    "name": "$hour",
+    "name": "$ghanta",
     "version": "1.2.0",
     "description": "Returns current hour",
     "unwrap": true,
@@ -2075,7 +2075,7 @@
     ]
   },
   {
-    "name": "$minute",
+    "name": "$minat",
     "version": "1.2.0",
     "description": "Returns current minute",
     "unwrap": true,
@@ -2102,7 +2102,7 @@
     ]
   },
   {
-    "name": "$month",
+    "name": "$mahina",
     "version": "1.2.0",
     "description": "Returns current month",
     "unwrap": true,
@@ -2132,7 +2132,7 @@
     ]
   },
   {
-    "name": "$week",
+    "name": "$hafta",
     "version": "1.5.0",
     "description": "Returns current week of month",
     "unwrap": false,
@@ -2145,7 +2145,7 @@
     ]
   },
   {
-    "name": "$year",
+    "name": "$saal",
     "version": "1.2.0",
     "description": "Returns current year",
     "unwrap": true,
@@ -2173,7 +2173,7 @@
     ]
   },
   {
-    "name": "$isBot",
+    "name": "$kyaBotHai",
     "version": "1.0.0",
     "description": "Whether the user is a bot",
     "unwrap": true,
@@ -2198,7 +2198,7 @@
     ]
   },
   {
-    "name": "$randomUserID",
+    "name": "$koiBhiID",
     "version": "1.0.3",
     "description": "Returns a random user ID",
     "unwrap": false,
@@ -2213,7 +2213,7 @@
     ]
   },
   {
-    "name": "$sendDM",
+    "name": "$dmBhej",
     "version": "1.0.0",
     "description": "Sends a dm to the user",
     "unwrap": true,
@@ -2248,7 +2248,7 @@
     ]
   },
   {
-    "name": "$userAvatar",
+    "name": "$userKiPhoto",
     "version": "1.0.0",
     "description": "Returns the user avatar",
     "brackets": false,
@@ -2285,7 +2285,7 @@
     ]
   },
   {
-    "name": "$userBanner",
+    "name": "$userKaBanner",
     "version": "1.0.0",
     "description": "Returns the user banner",
     "brackets": false,
@@ -2320,7 +2320,7 @@
     ]
   },
   {
-    "name": "$userCount",
+    "name": "$userKitneHain",
     "version": "1.0.0",
     "description": "Returns the user count of the bot",
     "unwrap": false,
@@ -2334,7 +2334,7 @@
     ]
   },
   {
-    "name": "$userGlobalName",
+    "name": "$sabkeSamneNaam",
     "version": "1.0.0",
     "description": "Returns the global name of a user",
     "unwrap": true,
@@ -2358,7 +2358,7 @@
     ]
   },
   {
-    "name": "$userTag",
+    "name": "$puraNaam",
     "version": "1.4.0",
     "description": "Returns the user tag",
     "brackets": false,
@@ -2384,7 +2384,7 @@
     ]
   },
   {
-    "name": "$username",
+    "name": "$naam",
     "version": "1.0.0",
     "description": "Retrieves a user's username",
     "brackets": false,
@@ -2409,7 +2409,7 @@
     ]
   },
   {
-    "name": "$get",
+    "name": "$varLo",
     "version": "1.0.0",
     "output": [
       "Unknown"
@@ -2434,7 +2434,7 @@
     ]
   },
   {
-    "name": "$let",
+    "name": "$varBanao",
     "version": "1.0.0",
     "description": "Create a keyword",
     "unwrap": true,

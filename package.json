@@ -26,6 +26,7 @@
   "scripts": {
     "build": "prettier src -w && tsc",
     "test": "node dist/__tests__",
+    "docgen": "tsc && typedoc ./src --out ./docs && node dist/docgen",
     "prepare": "npm run build && node dist/__tests__/sortTranslations && node dist/__tests__/coverage.md"
   },
   "devDependencies": {
@@ -34,5 +35,8 @@
     "dotenv": "^16.5.0",
     "prettier": "^3.5.3",
     "typescript": "^5.8.3"
+  },
+  "dependencies": {
+    "typedoc": "^0.28.5"
   }
 }

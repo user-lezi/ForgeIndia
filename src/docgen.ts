@@ -10,56 +10,77 @@ interface FunctionDef {
   category?: string;
   [key: string]: any;
 }
-
-interface HinglishMap {
-  [key: string]: string[];
-}
+export type FITranslation = Record<string, string[]>;
 
 interface MetadataEntry extends FunctionDef {
   aliases: string[];
 }
 
-const functionsPath = "src/functions.json";
-const translationsPath = "./translations/hinglish.json";
+// Constants
+const forgeFunctionsURL =
+  "https://raw.githubusercontent.com/tryforge/ForgeScript/dev/metadata/functions.json";
+const translationsDir = "./translations";
 const outputPath = "./metadata/functions.json";
 
-// Load files
-const functionsData: FunctionDef[] = JSON.parse(
-  fs.readFileSync(functionsPath, "utf-8"),
-);
-const hinglishTranslations: HinglishMap = JSON.parse(
-  fs.readFileSync(translationsPath, "utf-8"),
-);
+// Utility to load and merge all translation files
+function loadAllTranslations(): FITranslation {
+  const files = fs
+    .readdirSync(translationsDir)
+    .filter((f) => f.endsWith(".json"));
+  const merged: FITranslation = {};
 
-// Build metadata with first translation as name and rest as aliases
-const metadataWithAliases: MetadataEntry[] = functionsData
-  .map((func) => {
-    const translations = hinglishTranslations[func.name];
-    if (!Array.isArray(translations) || translations.length === 0) return null;
+  for (const file of files) {
+    const content = fs.readFileSync(path.join(translationsDir, file), "utf-8");
+    const json = JSON.parse(content) as FITranslation;
 
-    const [translatedName, ...aliasList] = translations;
+    for (const [fn, aliases] of Object.entries(json)) {
+      if (!merged[fn]) merged[fn] = [];
+      merged[fn].push(
+        ...aliases.filter((alias) => !merged[fn].includes(alias)),
+      );
+    }
+  }
 
-    return {
-      ...func,
-      name: translatedName,
-      aliases: aliasList,
-    };
-  })
-  .filter((entry): entry is MetadataEntry => entry !== null);
-
-// Ensure output directory exists
-const outputDir = path.dirname(outputPath);
-if (!fs.existsSync(outputDir)) {
-  fs.mkdirSync(outputDir, { recursive: true });
+  return merged;
 }
 
-// Write output
-fs.writeFileSync(
-  outputPath,
-  JSON.stringify(metadataWithAliases, null, 2),
-  "utf-8",
-);
+// Main async function
+(async () => {
+  console.log("📦 Fetching functions from ForgeScript repo...");
+  const response = await fetch(forgeFunctionsURL);
+  if (!response.ok) {
+    throw new Error(
+      `Failed to fetch functions: ${response.status} ${response.statusText}`,
+    );
+  }
 
-console.log(
-  `✅ Metadata written with translated names and aliases for ${metadataWithAliases.length} functions at: ${outputPath}`,
-);
+  const functionsData: FunctionDef[] = await response.json();
+  const allTranslations = loadAllTranslations();
+
+  const metadataWithAliases: MetadataEntry[] = functionsData
+    .map((func) => {
+      const translations = allTranslations[func.name];
+      if (!Array.isArray(translations) || translations.length === 0)
+        return null;
+
+      const [translatedName, ...aliasList] = translations;
+
+      return {
+        ...func,
+        name: translatedName,
+        aliases: aliasList,
+      };
+    })
+    .filter((entry): entry is MetadataEntry => entry !== null);
+
+  const outputDir = path.dirname(outputPath);
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir, { recursive: true });
+  }
+
+  fs.writeFileSync(outputPath, JSON.stringify(metadataWithAliases), "utf-8");
+
+  console.log(
+    `✅ Metadata written for ${metadataWithAliases.length} functions to: ${outputPath}`,
+  );
+})();

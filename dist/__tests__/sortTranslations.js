@@ -7,6 +7,7 @@ const coverage_1 = require("./coverage");
     const functions = await (0, coverage_1.fetchFunctions)();
     const functionCategoryMap = new Map();
     const translationsJSON = [];
+    functionCategoryMap.set("unknown", []);
     for (const key in typings_1.ForgeIndiaTranslation) {
         const translationKey = typings_1.ForgeIndiaTranslation[key];
         const translationData = await (0, coverage_1.loadTranslation)(translationKey);
@@ -17,6 +18,9 @@ const coverage_1 = require("./coverage");
                 if (!functionCategoryMap.has(category))
                     functionCategoryMap.set(category, []);
                 functionCategoryMap.get(category).push(native.name);
+            }
+            else {
+                functionCategoryMap.get("unknown").push(nativeName);
             }
         }
         translationsJSON.push("{");

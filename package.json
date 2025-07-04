@@ -1,6 +1,6 @@
 {
   "name": "forge.india",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Write ForgeScript in Hinglish – India on top 🔥",
   "keywords": [
     "ForgeIndia",
@@ -34,9 +34,7 @@
     "@types/node": "^22.15.21",
     "dotenv": "^16.5.0",
     "prettier": "^3.5.3",
+    "typedoc": "^0.28.7",
     "typescript": "^5.8.3"
-  },
-  "dependencies": {
-    "typedoc": "^0.28.5"
   }
 }

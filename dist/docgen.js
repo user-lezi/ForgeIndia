@@ -35,28 +35,51 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 const fs = __importStar(require("fs"));
 const path = __importStar(require("path"));
-const functionsPath = "src/functions.json";
-const translationsPath = "./translations/hinglish.json";
+const forgeFunctionsURL = "https://raw.githubusercontent.com/tryforge/ForgeScript/dev/metadata/functions.json";
+const translationsDir = "./translations";
 const outputPath = "./metadata/functions.json";
-const functionsData = JSON.parse(fs.readFileSync(functionsPath, "utf-8"));
-const hinglishTranslations = JSON.parse(fs.readFileSync(translationsPath, "utf-8"));
-const metadataWithAliases = functionsData
-    .map((func) => {
-    const translations = hinglishTranslations[func.name];
-    if (!Array.isArray(translations) || translations.length === 0)
-        return null;
-    const [translatedName, ...aliasList] = translations;
-    return {
-        ...func,
-        name: translatedName,
-        aliases: aliasList,
-    };
-})
-    .filter((entry) => entry !== null);
-const outputDir = path.dirname(outputPath);
-if (!fs.existsSync(outputDir)) {
-    fs.mkdirSync(outputDir, { recursive: true });
+function loadAllTranslations() {
+    const files = fs
+        .readdirSync(translationsDir)
+        .filter((f) => f.endsWith(".json"));
+    const merged = {};
+    for (const file of files) {
+        const content = fs.readFileSync(path.join(translationsDir, file), "utf-8");
+        const json = JSON.parse(content);
+        for (const [fn, aliases] of Object.entries(json)) {
+            if (!merged[fn])
+                merged[fn] = [];
+            merged[fn].push(...aliases.filter((alias) => !merged[fn].includes(alias)));
+        }
+    }
+    return merged;
 }
-fs.writeFileSync(outputPath, JSON.stringify(metadataWithAliases, null, 2), "utf-8");
-console.log(`✅ Metadata written with translated names and aliases for ${metadataWithAliases.length} functions at: ${outputPath}`);
+(async () => {
+    console.log("📦 Fetching functions from ForgeScript repo...");
+    const response = await fetch(forgeFunctionsURL);
+    if (!response.ok) {
+        throw new Error(`Failed to fetch functions: ${response.status} ${response.statusText}`);
+    }
+    const functionsData = await response.json();
+    const allTranslations = loadAllTranslations();
+    const metadataWithAliases = functionsData
+        .map((func) => {
+        const translations = allTranslations[func.name];
+        if (!Array.isArray(translations) || translations.length === 0)
+            return null;
+        const [translatedName, ...aliasList] = translations;
+        return {
+            ...func,
+            name: translatedName,
+            aliases: aliasList,
+        };
+    })
+        .filter((entry) => entry !== null);
+    const outputDir = path.dirname(outputPath);
+    if (!fs.existsSync(outputDir)) {
+        fs.mkdirSync(outputDir, { recursive: true });
+    }
+    fs.writeFileSync(outputPath, JSON.stringify(metadataWithAliases), "utf-8");
+    console.log(`✅ Metadata written for ${metadataWithAliases.length} functions to: ${outputPath}`);
+})();
 //# sourceMappingURL=docgen.js.map

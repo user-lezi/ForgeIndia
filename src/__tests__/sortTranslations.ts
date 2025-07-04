@@ -6,6 +6,7 @@ import { fetchFunctions, loadTranslation } from "./coverage";
   const functions = await fetchFunctions();
   const functionCategoryMap = new Map<string, `$${string}`[]>();
   const translationsJSON: string[] = [];
+  functionCategoryMap.set("unknown", []);
 
   for (const key in ForgeIndiaTranslation) {
     const translationKey =
@@ -19,6 +20,8 @@ import { fetchFunctions, loadTranslation } from "./coverage";
         if (!functionCategoryMap.has(category))
           functionCategoryMap.set(category, []);
         functionCategoryMap.get(category)!.push(native.name);
+      } else {
+        functionCategoryMap.get("unknown")!.push(nativeName as `$${string}`);
       }
     }
 

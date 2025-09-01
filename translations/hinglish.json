@@ -1,4 +1,26 @@
 {
+	
+	"$addRole": ["$roleDedo", "$roleDuKya"],
+	"$cloneRole": ["$roleCloneKaro", "$roleKaCopyBanao"],
+	"$deleteRoles": ["$rolesHatado", "$rolesDeleteKaro"],
+	"$editRole": ["$roleBadlo", "$roleEditKaro"],
+	"$editRoleColors": ["$roleColorBadlo", "$roleKaRangBadlo"],
+	"$editRoleIcon": ["$roleIconBadlo", "$roleKaIconSetKaro"],
+	"$editRoleName": ["$roleNaamBadlo", "$roleRenameKaro"],
+	"$editRolePosition": ["$rolePositionBadlo", "$roleKiJagahBadlo"],
+	"$roleExists": ["$roleHaiKya"],
+	
+	"$ephemeral": ["$chupao", "$ekMinuteWalaMessage", "$temporaryBanao"],
+	"$isAnySelectMenu": ["$konsaBhiSelectMenuHaiKya"],
+	"$isButton": ["$buttonHaiKya", "$kyaButtonHai"],
+	"$isChannelSelectMenu": ["$channelSelectMenuHaiKya", "$channelWalaMenuHaiKya"],
+	"$isMentionableSelectMenu": ["$mentionSelectMenuHaiKya", "$mentionWalaMenuHaiKya"],
+	"$isRepliable": ["$jawabDiyaJaSaktaHaiKya", "$replyKarSakteHaiKya"],
+	"$isRoleSelectMenu": ["$roleSelectMenuHaiKya", "$roleWalaMenuHaiKya"],
+	"$isSlashCommand": ["$slashCmdHaiKya"],
+	"$isStringSelectMenu": ["$stringSelectMenuHaiKya", "$stringWalaMenuHaiKya"],
+	"$isUserSelectMenu": ["$userSelectMenuHaiKya", "$userWalaMenuHaiKya"],
+	
 	"$channelCategoryID": ["$channelCategoryKaID"],
 	"$channelChildrenCount": ["$channelKeBacchonKiGinti"],
 	"$channelChildrenIDs": ["$channelKeBacchonKiIDs", "$subChannelIDs"],
@@ -124,5 +146,9 @@
 	"$isFile": ["$yeFileHaiKya"],
 	"$readFile": ["$filePadho"],
 	"$renameFile": ["$fileKaNaamBadlo"],
-	"$writeFile": ["$fileMeinLikho"]
+	"$writeFile": ["$fileMeinLikho"],
+	
+	"$abbreviateNumber": ["$numberChhotakaro", "$chhotaNumberBanao", "$numberShortKaro"],
+	"$average": ["$averageKaro", "$ausatNikaalo"],
+	"$ordinal": ["$numberKoRankDo", "$ordinalBanao"]
 }

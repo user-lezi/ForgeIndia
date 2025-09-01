@@ -30,7 +30,7 @@
     "prepare": "npm run build && node dist/__tests__/sortTranslations && node dist/__tests__/coverage.md"
   },
   "devDependencies": {
-    "@tryforge/forgescript": "^2.3.0",
+    "@tryforge/forgescript": "github:tryforge/ForgeScript#dev",
     "@types/node": "^22.15.21",
     "dotenv": "^16.5.0",
     "prettier": "^3.5.3",

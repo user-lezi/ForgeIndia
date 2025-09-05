@@ -8,9 +8,9 @@ import {
 import { existsSync } from "fs";
 import path from "path";
 import {
-  IForgeIndiaOptions,
   ForgeIndiaTranslation,
-  FITranslation,
+  ForgeIndiaTranslationJSON,
+  IForgeIndiaOptions,
 } from "./typings";
 
 /**
@@ -109,14 +109,15 @@ export class ForgeIndia extends ForgeExtension {
 
     // Load native functions and translations
     FunctionManager.loadNative();
-    const translations: FITranslation = require(translationFilePath);
+    const translations: ForgeIndiaTranslationJSON = require(
+      translationFilePath,
+    );
     const translatedNativeFunctions: NativeFunction[] = [];
 
     // Map translations to native functions
-    for (const [
-      functionName,
-      [translatedName, ...translatedAliases],
-    ] of Object.entries(translations)) {
+    for (const [functionName, functionData] of Object.entries(
+      translations.functions,
+    )) {
       const nativeFunc = FunctionManager.get(functionName);
       if (
         nativeFunc &&
@@ -124,11 +125,28 @@ export class ForgeIndia extends ForgeExtension {
           nativeFunc.name.toLowerCase() as `$${string}`,
         )
       ) {
+        if (functionData.description)
+          nativeFunc.data.description = functionData.description;
+        if (
+          functionData.args &&
+          functionData.args.length &&
+          nativeFunc.data.args &&
+          nativeFunc.data.args.length
+        )
+          nativeFunc.data.args = nativeFunc.data.args.map((arg, index) => {
+            let translatedArg = functionData.args![index];
+            if (translatedArg) {
+              arg.name = translatedArg.name;
+              if (translatedArg.description)
+                arg.description = translatedArg.description;
+            }
+            return arg;
+          });
         translatedNativeFunctions.push(
           new NativeFunction({
             ...nativeFunc.data,
-            name: translatedName,
-            aliases: [...(nativeFunc.data.aliases ?? []), ...translatedAliases],
+            name: functionData.translated,
+            aliases: functionData.aliases ?? [],
           } as any),
         );
       }

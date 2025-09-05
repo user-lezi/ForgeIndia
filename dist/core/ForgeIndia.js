@@ -50,14 +50,29 @@ class ForgeIndia extends forgescript_1.ForgeExtension {
         forgescript_1.FunctionManager.loadNative();
         const translations = require(translationFilePath);
         const translatedNativeFunctions = [];
-        for (const [functionName, [translatedName, ...translatedAliases],] of Object.entries(translations)) {
+        for (const [functionName, functionData] of Object.entries(translations.functions)) {
             const nativeFunc = forgescript_1.FunctionManager.get(functionName);
             if (nativeFunc &&
                 !this.options.exclude.includes(nativeFunc.name.toLowerCase())) {
+                if (functionData.description)
+                    nativeFunc.data.description = functionData.description;
+                if (functionData.args &&
+                    functionData.args.length &&
+                    nativeFunc.data.args &&
+                    nativeFunc.data.args.length)
+                    nativeFunc.data.args = nativeFunc.data.args.map((arg, index) => {
+                        let translatedArg = functionData.args[index];
+                        if (translatedArg) {
+                            arg.name = translatedArg.name;
+                            if (translatedArg.description)
+                                arg.description = translatedArg.description;
+                        }
+                        return arg;
+                    });
                 translatedNativeFunctions.push(new forgescript_1.NativeFunction({
                     ...nativeFunc.data,
-                    name: translatedName,
-                    aliases: [...(nativeFunc.data.aliases ?? []), ...translatedAliases],
+                    name: functionData.translated,
+                    aliases: functionData.aliases ?? [],
                 }));
             }
         }
